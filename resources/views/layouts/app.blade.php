@@ -2,8 +2,23 @@
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
+	<!-- CSRF Token -->
+	<meta name="csrf-token" content="{{ csrf_token() }}">
+
+	<title>{{ config('app.name', 'Laravel') }}</title>
+
+	<!-- Styles -->
+	<link href="/css/app.css" rel="stylesheet">
+
+	<!-- Scripts -->
+	<script>
+		window.Laravel = <?php echo json_encode([
+			'csrfToken' => csrf_token(),
+		]); ?>
+	</script>
 	<title>Laravel Blog</title>
 
 	<!-- Fonts -->
@@ -21,7 +36,7 @@
 		}
 
 		.full-height {
-			height: 100vh;
+			height: 80vh;
 		}
 
 		.flex-center {
@@ -58,6 +73,24 @@
 			text-transform: uppercase;
 		}
 
+		.bottom-links {
+			position: relative;
+			padding-top: 60px;
+			bottom: 0px;
+			text-align: center;
+			width: 100%;
+			height: 200px;
+			background-color: #bbb; /*to make it visible*/
+		}
+
+		.bottom-links > a {
+			color: #3f9ae5;
+			text-shadow: #1d2124 3px;
+			font-weight: bolder;
+			font-size: 20px;
+			padding: 0 90px;
+		}
+
 		.m-b-md {
 			margin-bottom: 30px;
 		}
@@ -68,10 +101,14 @@
 		@if (Route::has('login'))
 			<div class="top-right links">
 				@auth
-					<a href="{{ url('/home') }}">Home</a>
+					@if (Request::path() !== "")
+						<a href="/">Home</a>
+					@endif
+					@if (Request::path() !== "feed")
+						<a href="/feed">Feed</a>
+					@endif
 				@else
 					<a href="{{ route('login') }}">Login</a>
-
 					@if (Route::has('register'))
 						<a href="{{ route('register') }}">Register</a>
 					@endif
@@ -82,13 +119,10 @@
 
 			@yield('content')
 
-			<div class="links">
-				@if (Request::path() !== "/")
-					<a href="/">Home</a>
-				@endif
-				@if (Request::path() !== "feed")
-					<a href="/feed">Feed</a>
-				@endif
+		</div>
+	</div>
+			<div class="bottom-links links">
+
 				@if (Request::path() !== "blog")
 					<a href="/blog">Blog</a>
 				@endif
@@ -101,6 +135,6 @@
 				<a href="https://github.com/knowhere1998/laravel-refresher-blog">GitHub</a>
 			</div>
 		</div>
-	</div>
-</body>
+
+	</body>
 </html>

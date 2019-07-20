@@ -11,36 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-	return view('welcome');
+Auth::routes();
+
+Route::group(['middleware' => 'auth'], function()
+{
 });
 
+Route::get('/', 'HomeController@index');
 
-Route::get('/feed', function () {
-	return view('feed')->with([
-		'notifications' => [],
-		'blogs' => [
-			'First Blog',
-			'Another Blog'
-		]
-	]);
-});
+Route::get('/feed', 'HomeController@feed');
 
+Route::get('/blog', 'HomeController@blog');
 
-Route::get('/blog', function () {
-	$blogs = [
-		'First Blog',
-		'Another Blog'
-	];
-	return view('blog')->withBlogs($blogs);
-});
+Route::get('/about', 'HomeController@blog');
 
-Route::get('/about', function () {
-	return view('about');
-});
-
-
-Route::get('/contact', function () {
-	return view('contact');
-});
+Route::get('/contact', 'HomeController@blog');
 
