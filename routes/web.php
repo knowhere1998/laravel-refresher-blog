@@ -17,12 +17,22 @@ Route::get('/', function () {
 
 
 Route::get('/feed', function () {
-	return view('feed');
+	return view('feed')->with([
+		'notifications' => [],
+		'blogs' => [
+			'First Blog',
+			'Another Blog'
+		]
+	]);
 });
 
 
 Route::get('/blog', function () {
-	return view('blog');
+	$blogs = [
+		'First Blog',
+		'Another Blog'
+	];
+	return view('blog')->withBlogs($blogs);
 });
 
 Route::get('/about', function () {
