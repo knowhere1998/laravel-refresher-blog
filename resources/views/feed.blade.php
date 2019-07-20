@@ -5,10 +5,10 @@
 		Blog Feed
 	</div>
 
-	@if ($notifications)
-		<ul>
-			@foreach($notifications as $notification)
-				<li>{{ $notification }}</li>
+	@if ($categories)
+		<ul class="list-inline">
+			@foreach($categories as $category)
+				<li><a href="#">{{ $category->name }}</a></li>
 			@endforeach
 		</ul>
 	@else

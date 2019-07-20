@@ -56,7 +56,9 @@
 		}
 
 		.content {
+			width: 80%;
 			text-align: center;
+			margin: auto;
 		}
 
 		.title {
@@ -107,6 +109,10 @@
 					@if (Request::path() !== "feed")
 						<a href="/feed">Feed</a>
 					@endif
+					<form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+						{{ csrf_field() }}
+					</form>
+					<a href="#" id="logout" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
 				@else
 					<a href="{{ route('login') }}">Login</a>
 					@if (Route::has('register'))
