@@ -2,7 +2,7 @@
 @section('content')
 
 	<div class="title m-b-md">
-		Laravel 5.8 Blog
+		Blog Landing Page
 	</div>
 
 @endsection
