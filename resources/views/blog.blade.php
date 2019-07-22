@@ -8,7 +8,11 @@
 	@if ($blogs)
 	    <ul>
 			@foreach($blogs as $blog)
-				<li>{{ $blog }}</li>
+				<li>
+					<a href="/posts/{{ $blog->id }}/">
+						{{ $blog->title }}
+					</a>
+				</li>
 			@endforeach
 		</ul>
 	@else

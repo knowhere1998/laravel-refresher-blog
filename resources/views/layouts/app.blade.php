@@ -7,7 +7,7 @@
 <div class="container-fluid" style="height: 100vh">
 		@include('layouts.navbar')
 
-	<div id="main" class="row h-75">
+	<div id="main" class="row h-75 p-1">
 
 		@yield('content')
 

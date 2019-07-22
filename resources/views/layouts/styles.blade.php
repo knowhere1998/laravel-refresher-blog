@@ -40,7 +40,7 @@
 	}
 
 	.title {
-		font-size: 84px;
+		font-size: 62px;
 	}
 
 	.links > a {
@@ -59,6 +59,7 @@
 
 	.bottom-links {
 		position: relative;
+		margin-top: 100px;
 		padding-top: 60px;
 		bottom: 0px;
 		text-align: center;

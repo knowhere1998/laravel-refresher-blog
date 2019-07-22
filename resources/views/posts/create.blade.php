@@ -6,7 +6,7 @@
 	<div class="row">
 		<h1 class="modal-title">Create new Post</h1>
 		<div class="col-md-8 offset-md-2">
-		<form method="POST" action="{{ url('post.store') }}">
+		<form method="POST" action="/posts">
 			{{ csrf_field() }}
 
 			<div class="form-group">
