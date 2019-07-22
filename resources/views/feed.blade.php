@@ -1,33 +1,27 @@
 @extends('layouts.app')
 @section('content')
 
-	<div class="title m-b-md">
-		Blog Feed
+	<div class="container">
+		<div class="row">
+			<div class="col-md-8 offset-md-2">
+				<h1>
+					Blog Feed
+				</h1>
+				@if ($blogs)
+					<ul>
+						@foreach($blogs as $blog)
+							<li>
+								<a href="/posts/{{ $blog->id }}/">
+									{{ $blog->title }}
+								</a>
+							</li>
+						@endforeach
+					</ul>
+				@else
+					<p>No Blog Entries</p>
+				@endif
+			</div>
+		</div>
 	</div>
 
-	@if (count($categories))
-		<ul class="list-inline">
-			@foreach($categories as $category)
-				<li><a href="#">{{ $category->name }}</a></li>
-			@endforeach
-		</ul>
-	@else
-		<p>No new Notifications</p>
-	@endif
-	<hr />
-
-
-	@if (count($blogs))
-		<div class="font-weight-bold">
-			Recent Blog Posts
-		</div>
-		<ul>
-			@foreach($blogs as $blog)
-				<li><a href="{{ url("blog", $blog->id) }}">{{ $blog->title }}</a></li>
-			@endforeach
-		</ul>
-	@else
-		<p>No Blog Entries</p>
-	@endif
-	<hr />
 @endsection

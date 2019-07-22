@@ -23,7 +23,8 @@ class HomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('welcome');
+		$posts = Post::orderBy('id', 'desc')->take(5)->get();
+		return view('welcome', ['posts' => $posts]);
 	}
 
 	public function feed(){
@@ -32,11 +33,6 @@ class HomeController extends Controller {
 			'categories' => Category::all(),
 			'blogs' => Post::all()
 		]);
-	}
-
-	function blog(){
-		$blogs = Post::all();
-		return view('blog')->withBlogs($blogs);
 	}
 
 	function about(){

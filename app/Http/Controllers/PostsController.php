@@ -72,7 +72,7 @@ class PostsController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Post $post) {
-		if (Auth::check()){
+    	if (Auth::check()) {
 			$user = Auth::user();
 			if ($user->getAuthIdentifier() === $post->author_id){
 				$post->title = $request['title'];
@@ -95,8 +95,10 @@ class PostsController extends Controller {
 	 * @return \Illuminate\Http\Response
 	 * @throws \Exception
 	 */
-    public function destroy(Post $post) {
-        $post->delete();
+    public function destroy($id) {
+
+    	Post::findOrFail($id)->delete();
+
         return redirect('/posts');
     }
 }
