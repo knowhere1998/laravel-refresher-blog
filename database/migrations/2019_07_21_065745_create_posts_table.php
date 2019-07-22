@@ -19,7 +19,6 @@ class CreatePostsTable extends Migration
 			$table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
 			$table->string('title');
 			$table->text('content');
-			$table->datetime('posted_at');
             $table->timestamps();
         });
     }

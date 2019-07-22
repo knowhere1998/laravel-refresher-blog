@@ -18,4 +18,13 @@ class Post extends Model
 	public function author() {
 		return $this->belongsTo('App\User', 'author_id');
 	}
+
+	/**
+	 * Get the route key for the model.
+	 *
+	 * @return string
+	 */
+	public function getRouteKeyName() {
+		return 'slug';
+	}
 }

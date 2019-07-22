@@ -13,15 +13,18 @@
 
 Auth::routes();
 
+Route::resource('posts', 'PostsController');
+
+Route::get('/', 'HomeController@index');
+
+Route::get('/feed', 'HomeController@feed');
+
+Route::get('/blog', 'HomeController@blog');
+
+Route::get('/about', 'HomeController@about');
+
+Route::get('/contact', 'HomeController@contact');
 
 Route::group(['middleware' => 'auth'], function() {
-	Route::get('/', 'HomeController@index');
 
-	Route::get('/feed', 'HomeController@feed');
-
-	Route::get('/blog', 'HomeController@blog');
-
-	Route::get('/about', 'HomeController@blog');
-
-	Route::get('/contact', 'HomeController@blog');
 });

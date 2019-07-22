@@ -5,7 +5,7 @@
 		Blog Feed
 	</div>
 
-	@if ($categories)
+	@if (count($categories))
 		<ul class="list-inline">
 			@foreach($categories as $category)
 				<li><a href="#">{{ $category->name }}</a></li>
@@ -17,13 +17,13 @@
 	<hr />
 
 
-	@if ($blogs)
+	@if (count($blogs))
 		<div class="font-weight-bold">
 			Recent Blog Posts
 		</div>
 		<ul>
 			@foreach($blogs as $blog)
-				<li>{{ $blog }}</li>
+				<li><a href="{{ url("blog", $blog->id) }}">{{ $blog->title }}</a></li>
 			@endforeach
 		</ul>
 	@else
