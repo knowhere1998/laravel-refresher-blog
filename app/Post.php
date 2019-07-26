@@ -9,11 +9,10 @@ class Post extends Model
 	protected $fillable = [
 		'author_id',
 		'title',
-		'content',
-		'posted_at'
+		'content'
 	];
 
-	public $dates = [ 'posted_at' ];
+	public $dates = [ 'created_at' ];
 
 	public function author() {
 		return $this->belongsTo('App\User', 'author_id');
@@ -27,4 +26,9 @@ class Post extends Model
 //	public function getRouteKeyName() {
 //		return 'slug';
 //	}
+
+
+	public function comments() {
+		return $this->hasMany('App\Comment');
+	}
 }
