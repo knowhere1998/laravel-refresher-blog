@@ -3,18 +3,26 @@
 <head>
 	@include('layouts.head')
 </head>
-<body class="h-100">
-<div class="container-fluid" style="height: 100vh">
-		@include('layouts.navbar')
+<body>
+<div class="page-container">
+	<div class="content-wrap">
 
-	<div id="main" class="row mh-100">
-		@yield('content')
+		<div class="container-fluid" style="height: 100vh">
+				@include('layouts.navbar')
+
+			<div id="main" class="row mh-100">
+				@yield('content')
+			</div>
+
+		</div>
 	</div>
 
-	<footer class="row">
-		@include('layouts.footer')
-	</footer>
-
 </div>
+<footer>
+	<div id=footer>
+
+		@include('layouts.footer')
+	</div>
+</footer>
 </body>
 </html>

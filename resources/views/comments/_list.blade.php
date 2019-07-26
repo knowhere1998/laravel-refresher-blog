@@ -13,12 +13,16 @@
 	</ul>
 </h4>
 
-@include('comments._create_form')
+<div class="row">
+	<div class="offset-md-1"></div>
+	<div class="comments col-md-11">
+		@include('comments._create_form')
 
-<h5>Comments Count:{{ $comments->total() }}</h5>
-
-@each('comments/_show', $comments, 'comment')
-
+		<div class="comments pt-2">
+			@each('comments/_show', $comments, 'comment')
+		</div>
+	</div>
+</div>
 <div class="text-center">
 	{{ $comments->links() }}
 </div>

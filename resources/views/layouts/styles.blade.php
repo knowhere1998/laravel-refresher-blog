@@ -1,11 +1,13 @@
 <style>
-	html, body {
-		background-color: #fff;
-		color: #636b6f;
+	.page-container{
+		position: relative;
+		min-height: 100%;
 		font-family: 'Nunito', sans-serif;
 		font-weight: 200;
-		height: 100vh;
-		margin: 0;
+	}
+
+	.content-wrap{
+		padding-bottom: 2.5rem;    /* Footer height */
 	}
 
 	.pull-right {
@@ -22,15 +24,12 @@
 		text-transform: uppercase;
 	}
 
-	.m-b-md {
-		margin-bottom: 30px;
-	}
-
-	.bottom-links {
+	#footer {
 		position: relative;
-		margin-top: 100px;
+		clear: both;
+		margin-top: 200px;
 		padding-top: 60px;
-		bottom: 0px;
+		bottom: 0;
 		text-align: center;
 		width: 100%;
 		height: 200px;

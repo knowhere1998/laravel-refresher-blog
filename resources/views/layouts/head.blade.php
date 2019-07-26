@@ -21,5 +21,6 @@
 </script>
 <title>Laravel-Blog</title>
 <!-- Styles -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 @extends('layouts.styles')

@@ -1,5 +1,5 @@
 <div class="card card-default">
-	<div class="card-heading font-weight-bold">Add Comment</div>
+	<div class="card-heading font-weight-bold p-2">Add Comment</div>
 	<div class="card-body">
 		{!! Form::open(['route' => 'comments.store', 'method' => 'post']) !!}
 		{!! Form::hidden('post_id', $post->id) !!}
