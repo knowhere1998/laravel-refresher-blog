@@ -26,7 +26,7 @@ I like to follow the make it work (1); make it work well/properly (2); make it p
 
 Most of my experience as of the last few years has been solely with backend web technologies in php from scratch as well [python](https://www.python.org/) web framework [django](https://github.com/django/django).
 
-I decided **it's time to relearn php** and **brush up on php frameworks ** like Laravel, Codeigniter, CakePHP and so on.
+I decided **it's time to relearn php** and **brush up on php frameworks** like Laravel, Codeigniter, CakePHP and so on.
 
 I have previous experience with PHP from the PHP 5 days, so it seemed like as good a choice as any.
 
