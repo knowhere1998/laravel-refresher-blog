@@ -21,8 +21,7 @@ class HomeController extends Controller {
 	 *
 	 * @return \Illuminate\Http\Response
 	 */
-	public function index()
-	{
+	public function index() {
 		$posts = Post::orderBy('id', 'desc')->take(5)->get();
 		return view('welcome', ['posts' => $posts]);
 	}

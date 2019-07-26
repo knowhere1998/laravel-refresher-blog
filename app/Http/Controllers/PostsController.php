@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Post;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 class PostsController extends Controller {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function index() {
 		$blogs = Post::all();
@@ -20,7 +21,7 @@ class PostsController extends Controller {
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Response
      */
     public function create() {
         return view('posts.create');
@@ -29,26 +30,27 @@ class PostsController extends Controller {
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @return Response
      */
     public function store(Request $request) {
-		if (Auth::check()){
+		if (Auth::check()) {
 			$user = Auth::user();
 			$post = new Post($request->all());
 			$post->author_id= $user->getAuthIdentifier();
 			$post->save();
 			dd($post);
+			return view('posts.show', ['post' => $post]);
 		}else{
-			dd("Log in before posting on this blog");
+			abort(403, 'Unauthorized action.');
 		}
 	}
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return Response
      */
     public function show(Post $post) {
 		return view('posts.show')->withPost($post);
@@ -57,8 +59,8 @@ class PostsController extends Controller {
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Post $post
+     * @return Response
      */
     public function edit(Post $post) {
         return view('posts.edit', ['post' => $post]);
@@ -67,9 +69,9 @@ class PostsController extends Controller {
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Post  $post
-     * @return \Illuminate\Http\Response
+     * @param Request $request
+     * @param Post $post
+     * @return Response
      */
     public function update(Request $request, Post $post) {
     	if (Auth::check()) {
@@ -84,15 +86,15 @@ class PostsController extends Controller {
 			}
 			return view('posts.show', ['post' => $post]);
 		}else{
-			dd("Log in before posting on this blog");
+			return abort(403, 'Unauthorized action.');
 		}
     }
 
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param \App\Post $post
-	 * @return \Illuminate\Http\Response
+	 * @param Post $post
+	 * @return Response
 	 * @throws \Exception
 	 */
     public function destroy($id) {
