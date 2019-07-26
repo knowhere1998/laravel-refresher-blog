@@ -3,20 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
-use App\Auth;
 use App\Post;
+use App\Http\Requests\CommentsRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index() {
-        //
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -24,17 +17,15 @@ class CommentsController extends Controller {
      * @param Request $request
      * @return Response
      */
-    public function store(CommentsRequest $request) {
+    public function store(Request $request) {
 		$user = Auth::user();
 		$post = Post::findOrFail($request->input('post_id'));
-
-		$comment = $user->comments()->create([
-			'post_id' => $post->id,
+		$comment = $post->comments()->create([
+			'author_id' => $user->id,
 			'content' => $request->input('content')
 		]);
 
-		dd($comment);
-		return redirect()->route('posts.show', $post)->with('success', trans('comments.created'));
+		return redirect()->route('posts.show', $post)->with('success', "Comments.created");
     }
 
 //
@@ -48,14 +39,16 @@ class CommentsController extends Controller {
 //        //
 //    }
 
-
     /**
      * Remove the specified resource from storage.
      *
      * @param Comment $comment
      * @return Response
      */
-    public function destroy(Comment $comment) {
-        //
-    }
+    public function destroy(Comment $id) {
+		$comment = Post::findOrFail($id);
+		$post = $comment->post();
+		$comment->delete();
+		return redirect()->route('posts.show', $post)->with('success', "comment deleted");
+	}
 }

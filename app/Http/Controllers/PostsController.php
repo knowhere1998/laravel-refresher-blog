@@ -53,7 +53,7 @@ class PostsController extends Controller {
      * @return Response
      */
     public function show(Post $post) {
-		$comments = $post->comments()->orderBy('posted_at', 'desc')->paginate(50);
+		$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(50);
 		return view('posts.show')->withPost($post)->withComments($comments);
     }
 

@@ -3,6 +3,14 @@
 
 	<div class="container">
 		<div class="row">
+
+			@if (Session::has('success'))
+				<div class="alert alert-success alert-dismissible w-100" role="alert">
+					<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					{{ Session::get('success') }}
+				</div>
+			@endif
+
 			<div class="col-md-10 offset-md-1">
 				<div class="container clearfix">
 					<h1>
@@ -19,7 +27,7 @@
 				</p>
 				<hr>
 				<div class="comments">
-					@include ('comments/_list')
+					@include ('comments._list')
 				</div>
 				<a href="/posts/{{ $post->id }}/edit">Edit</a>
 			</div>

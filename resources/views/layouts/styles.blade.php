@@ -12,36 +12,6 @@
 		height: 80vh;
 	}
 
-	.flex-center {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-	}
-
-	.position-ref {
-		position: relative;
-	}
-
-	.top-right {
-		position: absolute;
-		right: 10px;
-		top: 18px;
-	}
-
-	.top-left {
-		position: absolute;
-		left: 10px;
-		top: 18px;
-	}
-
-	.content {
-		width: 80%;
-		margin: auto;
-	}
-
-	.title {
-		font-size: 62px;
-	}
 
 	.links > a {
 		color: #636b6f;
