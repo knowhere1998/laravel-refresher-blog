@@ -22,3 +22,8 @@
 <div class="text-center">
 	{{ $comments->links() }}
 </div>
+
+
+@push('inline-scripts')
+	@include ('js.forms.delete-confirmation', ['text' => 'Delete this Comment?'])
+@endpush

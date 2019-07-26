@@ -15,7 +15,7 @@ Auth::routes();
 
 Route::resource('posts', 'PostsController');
 
-Route::resource('comments', 'CommentsController', ['only' => ['store', 'delete']]);
+Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 
 Route::get('/', 'HomeController@index');
 

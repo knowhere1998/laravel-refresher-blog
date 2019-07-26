@@ -8,10 +8,9 @@
 		margin: 0;
 	}
 
-	.full-height {
-		height: 80vh;
+	.pull-right {
+		align-self:end;
 	}
-
 
 	.links > a {
 		color: #636b6f;
