@@ -81,8 +81,7 @@ class PostsController extends Controller {
 				$post->content = $request['content'];
 				$post->save();
 			}else{
-
-				return "Unable to process request";
+				return abort(403, 'Unauthorized action.');
 			}
 			return view('posts.show', ['post' => $post]);
 		}else{

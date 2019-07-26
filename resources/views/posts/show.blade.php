@@ -10,7 +10,7 @@
 					</h1>
 					<p class="float-right">
 						Posted By: <a href="/about" class="font-weight-bold">{{ $post->author->name }}</a>
-						on <i>{{ date('F d, Y', strtotime($post->created_at)) }}</i>
+						on <i>{{  humanize_date($post->created_at) }}</i>
 					</p>
 				</div>
 				<hr />
