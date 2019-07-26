@@ -17,10 +17,10 @@ class CreateCommentsTable extends Migration
             $table->bigIncrements('id');
 
 
-			$table->integer('author_id')->unsigned()->default(0);
+			$table->bigInteger('author_id')->unsigned()->default(0);
 			$table->foreign('author_id')->references('id')->on('users')->onDelete('cascade');
 
-			$table->integer('post_id')->unsigned();
+			$table->bigInteger('post_id')->unsigned();
 			$table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade');
 
 			$table->text('content');
