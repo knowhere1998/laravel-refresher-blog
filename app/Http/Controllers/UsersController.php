@@ -21,4 +21,15 @@ class UsersController extends Controller
 		$comments = $user->comments()->orderBy('created_at', 'desc')->limit(10)->get();
 		return view('users.show')->withUser($user)->withPosts($posts)->withComments($comments);
 	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 * @param User $user
+	 * @return
+	 * @throws \Illuminate\Auth\Access\AuthorizationException
+	 */
+	public function edit(User $user) {
+		$this->authorize('update', $user);
+		return view('users.edit', $user)->withUser($user);
+	}
 }
