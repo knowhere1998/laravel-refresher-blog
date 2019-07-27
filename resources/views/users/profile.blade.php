@@ -26,7 +26,7 @@
 
 
 	@can('update', $user)
-		<a href="{{ route('users.edit', $user) }}" class="pull-right btn btn-primary">{{ trans('users.edit') }}</a>
+		<a href="{{ route('users.edit', $user) }}" class="float-right btn btn-primary">Edit</a>
 	@endcan
 
 </form>
