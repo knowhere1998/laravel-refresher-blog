@@ -21,8 +21,8 @@
 </div>
 
 <div class="float-right">
-	<a href="{{ route('users.show', $user) }}" class="btn btn-default">{{ 'back' }}</a>
-	{!! Form::submit('save', ['class' => 'btn btn-success']) !!}
+	<a href="{{ route('users.show', $user) }}" class="btn btn-default">{{ 'Cancel' }}</a>
+	{!! Form::submit('Save', ['class' => 'btn btn-success']) !!}
 </div>
 
 {!! Form::close() !!}
