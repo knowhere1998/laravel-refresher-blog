@@ -14,8 +14,8 @@ class PostsController extends Controller {
      * @return Response
      */
     public function index() {
-		$blogs = Post::all();
-		return view('blog')->withBlogs($blogs);
+		$posts = Post::orderBy('created_at', 'desc')->paginate(2);
+		return view('welcome')->withPosts($posts);
     }
 
     /**
@@ -39,8 +39,8 @@ class PostsController extends Controller {
 			$post = new Post($request->all());
 			$post->author_id= $user->getAuthIdentifier();
 			$post->save();
-			dd($post);
-			return view('posts.show', ['post' => $post]);
+			$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(15);
+			return view('posts.show', ['post' => $post, 'comments' => $comments]);
 		}else{
 			abort(403, 'Unauthorized action.');
 		}
@@ -53,7 +53,7 @@ class PostsController extends Controller {
      * @return Response
      */
     public function show(Post $post) {
-		$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(50);
+		$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(15);
 		return view('posts.show')->withPost($post)->withComments($comments);
     }
 

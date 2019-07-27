@@ -17,7 +17,7 @@ Route::resource('posts', 'PostsController');
 
 Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'PostsController@index');
 
 Route::get('/feed', 'HomeController@feed');
 
