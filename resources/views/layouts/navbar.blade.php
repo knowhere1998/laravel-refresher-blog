@@ -36,7 +36,7 @@
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								@if (Request::path() !== "/profile")
-											<a class="dropdown-item"  href="/profile">Profile</a>
+											<a class="dropdown-item"  href="{{ route('users.show', Auth::user()) }}">Profile</a>
 										@endif
 								@if (Request::path() !== "feed")
 											<a class="dropdown-item"  href="/feed">Feed</a>

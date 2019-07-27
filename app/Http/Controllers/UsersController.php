@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\UsersRequest;
@@ -16,8 +17,8 @@ class UsersController extends Controller
 	 * @return View
 	 */
 	public function show(User $user) {
-		$posts = $user->posts()->orderBy('posted_at', 'desc')->limit(5)->get();
-		$comments = $user->comments()->orderBy('posted_at', 'desc')->limit(5)->get();
+		$posts = $user->posts()->orderBy('created_at', 'desc')->limit(10)->get();
+		$comments = $user->comments()->orderBy('created_at', 'desc')->limit(10)->get();
 		return view('users.show')->withUser($user)->withPosts($posts)->withComments($comments);
 	}
 }

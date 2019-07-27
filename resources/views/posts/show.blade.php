@@ -20,7 +20,7 @@
 					<br>
 					<div class="meta-info">
 						<p class="float-right">
-							Posted By: <a href="/about" class="font-weight-bold">{{ user_name($post->author) }}</a>
+							Posted By: <a href="{{ route('users.show', Auth::user()) }}" class="font-weight-bold">{{ user_name($post->author) }}</a>
 							on <i>{{  humanize_date($post->created_at) }}</i>
 						</p>
 					</div>
