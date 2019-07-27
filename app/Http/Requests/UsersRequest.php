@@ -11,9 +11,8 @@ class UsersRequest extends FormRequest {
      *
      * @return bool
      */
-    public function authorize()
-    {
-        return false;
+    public function authorize() {
+        return true;
     }
 
     /**
@@ -21,8 +20,7 @@ class UsersRequest extends FormRequest {
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules() {
 		$user_id = Auth::id();
 		return [
 			'name' => 'required',

@@ -15,8 +15,7 @@ class UserPolicy {
      * @param User $model
      * @return mixed
      */
-    public function forceDelete(User $user, User $model)
-    {
-        //
+    public function update(User $user, User $model) {
+		return $user->id === $model->id;
     }
 }
