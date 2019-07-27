@@ -39,7 +39,7 @@
 					{{ $posts->links() }}
 				</div>
 				@else
-					<div class="h4">
+					<div class="h4 p-5">
 						No Blog Entries yet. <br>
 
 						<a href="{{ route('posts.create') }}">Click Here</a> to add some.
