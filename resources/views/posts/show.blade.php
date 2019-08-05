@@ -18,13 +18,15 @@
 					</h1>
 					<br>
 					<br>
+
 					<div class="meta-info">
 						<p class="float-right">
-							Posted By: <a href="{{ route('users.show', Auth::user()) }}" class="font-weight-bold">{{ user_name($post->author) }}</a>
+							Posted By: <a href="{{ route('users.show', $post->author ) }}" class="font-weight-bold">{{ user_name($post->author) }}</a>
 							on <i>{{  humanize_date($post->created_at) }}</i>
 						</p>
 					</div>
 				</div>
+				@auth
 				<div class="container clearfix">
 					<div class="justify-content-end float-right">
 						{!! Form::model($post, ['method' => 'DELETE', 'route' => ['posts.destroy', $post->id], 'class' => 'delete-post-confirmation']) !!}
@@ -41,6 +43,7 @@
 						{!! Form::close() !!}
 					</div>
 				</div>
+				@endauth
 				<hr />
 				<div class="p">
 					{{ $post->content }}

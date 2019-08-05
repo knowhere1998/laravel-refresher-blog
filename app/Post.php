@@ -14,6 +14,12 @@ class Post extends Model
 
 	public $dates = [ 'created_at' ];
 
+	public static function lastMonth($query, int $limit = 5) {
+		return $query->whereBetween('posted_at', [Carbon::now()->subMonth(), Carbon::now()])
+			->orderBy('posted_at', 'desc')
+			->limit($limit);
+	}
+
 	public function author() {
 		return $this->belongsTo('App\User', 'author_id');
 	}

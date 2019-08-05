@@ -15,14 +15,15 @@
 			</div>
 
 		</div>
+		<footer>
+			<div id=footer>
+
+				@include('layouts.footer')
+			</div>
+		</footer>
 	</div>
 
 </div>
-<footer>
-	<div id=footer>
 
-		@include('layouts.footer')
-	</div>
-</footer>
 </body>
 </html>

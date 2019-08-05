@@ -6,7 +6,11 @@
 		<div class="form-group">
 			{!! Form::textarea('content', null, ['class' => 'form-control', 'placeholder' => "Enter your comment Here", 'rows' => '4']) !!}
 		</div>
-		{!! Form::submit("Post Comment", ['class' => 'btn btn-primary pull-right']) !!}
+		@auth
+			{!! Form::submit("Post Comment", ['class' => 'btn btn-primary pull-right']) !!}
+		@else
+			{!! Form::submit("Post Comment", ['class' => 'btn btn-primary pull-right disabled', 'disabled']) !!}
+		@endauth
 		{!! Form::close() !!}
 	</div>
 </div>

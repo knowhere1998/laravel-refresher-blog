@@ -25,16 +25,18 @@
 	}
 
 	#footer {
-		position: relative;
 		clear: both;
 		margin-top: 200px;
 		padding-top: 60px;
-		bottom: 0;
 		text-align: center;
-		width: 100%;
 		height: 200px;
 		background-color: #bbb; /*to make it visible*/
+		position: relative;
+		bottom: 0;
+		width: 100%;
+
 	}
+
 
 	.bottom-links > a {
 		color: #3f9ae5;
@@ -44,4 +46,11 @@
 		padding: 0 90px;
 	}
 
+	html {
+		position: relative;
+		min-height: 100%;
+	}
+	body {
+		/* Margin bottom by footer height */
+	}
 </style>

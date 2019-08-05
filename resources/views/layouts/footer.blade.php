@@ -1,17 +1,19 @@
-<div class="bottom-links links">
+<div class="container">
+	<div class="bottom-links links">
 
-	@if (Request::path() !== "blog")
-		<a href="/blog">Blog</a>
-	@endif
-	@if (Request::path() !== "about")
-		<a href="/about">About</a>
-	@endif
-	@if (Request::path() !== "contact")
-		<a href="/contact">Contact Us</a>
-	@endif
-	<a href="https://github.com/knowhere1998/laravel-refresher-blog">GitHub</a>
-	<hr>
-	<div id="copyright text-right">© 2019. All rights reserved.</div>
+		@if (Request::path() !== "blog")
+			<a href="/blog">Blog</a>
+		@endif
+		@if (Request::path() !== "about")
+			<a href="/about">About</a>
+		@endif
+		@if (Request::path() !== "contact")
+			<a href="/contact">Contact Us</a>
+		@endif
+		<a href="https://github.com/knowhere1998/laravel-refresher-blog">GitHub</a>
+		<hr>
+		<div id="copyright text-right">© 2019. All rights reserved.</div>
+	</div>
 </div>
 <script href="{{ asset('js/app.js') }}" rel="stylesheet"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
