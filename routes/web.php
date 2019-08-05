@@ -11,22 +11,22 @@
 |
 */
 
+use Illuminate\Support\Facades\Route;
+
 Auth::routes();
 
 Route::resource('posts', 'PostsController');
 
-Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
-
 Route::resource('comments', 'CommentsController', ['only' => ['store', 'destroy']]);
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'PostsController@index')->name('home');
 
-Route::get('/feed', 'HomeController@feed');
+Route::get('/feed', 'HomeController@feed')->name('feed');
 
-Route::get('/about', 'HomeController@about');
+Route::get('/about', 'HomeController@about')->name('about');
 
-Route::get('/contact', 'HomeController@contact');
+Route::get('/contact', 'HomeController@contact')->name('contact-us');
 
 Route::group(['middleware' => 'auth'], function() {
-
+	Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
 });
