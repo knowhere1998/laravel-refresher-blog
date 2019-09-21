@@ -26,12 +26,12 @@
 
 	#footer {
 		clear: both;
-		margin-top: 200px;
+		margin-top: 260px;
 		padding-top: 60px;
 		text-align: center;
-		height: 200px;
+		height: 260px;
 		background-color: #bbb; /*to make it visible*/
-		position: relative;
+		position: absolute;
 		bottom: 0;
 		width: 100%;
 
@@ -52,5 +52,6 @@
 	}
 	body {
 		/* Margin bottom by footer height */
+		padding-bottom: 120px;
 	}
 </style>

@@ -27,6 +27,8 @@ Route::get('/about', 'HomeController@about')->name('about');
 
 Route::get('/contact', 'HomeController@contact')->name('contact-us');
 
+Route::resource('newsletter-subscriptions', 'NewsletterSubscriptionsController', ['only' => ['store']]);
+
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
 });

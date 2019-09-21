@@ -3,8 +3,8 @@
 <head>
 	@include('layouts.head')
 </head>
-<body>
-<div class="page-container">
+<body class="d-flex flex-column">
+<div class="page-container flex-fill">
 	<div class="content-wrap">
 
 		<div class="container-fluid" style="height: 100vh">
@@ -15,12 +15,10 @@
 			</div>
 
 		</div>
-		<footer>
-			<div id=footer>
-
-				@include('layouts.footer')
-			</div>
-		</footer>
+		<div id="footer">
+			@include('layouts.footer')
+			@include('layouts.newsletter-form')
+		</div>
 	</div>
 
 </div>
