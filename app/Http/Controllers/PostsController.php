@@ -40,7 +40,7 @@ class PostsController extends Controller {
 			$post->author_id= $user->getAuthIdentifier();
 			$post->save();
 			$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(15);
-			return view('posts.show', ['post' => $post, 'comments' => $comments]);
+			return view('posts.show')->withPost($post)->withComments($comments);
 		}else{
 			abort(403, 'Unauthorized action.');
 		}
@@ -84,7 +84,8 @@ class PostsController extends Controller {
 			}else{
 				return abort(403, 'Unauthorized action.');
 			}
-			return view('posts.show', ['post' => $post]);
+			$comments = $post->comments()->orderBy('created_at', 'desc')->paginate(15);
+			return view('posts.show', ['post' => $post, 'comments' => $comments]);
 		}else{
 			return abort(403, 'Unauthorized action.');
 		}
@@ -93,9 +94,8 @@ class PostsController extends Controller {
 	/**
 	 * Remove the specified resource from storage.
 	 *
-	 * @param Post $post
+	 * @param $id
 	 * @return Response
-	 * @throws \Exception
 	 */
     public function destroy($id) {
 
