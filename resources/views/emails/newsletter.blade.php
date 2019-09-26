@@ -14,3 +14,7 @@
 	Thank you for subscribing to our newsletter
 	Learn to pronounce
 </p>
+
+<p>
+	{{ link_to_route('newsletter-subscriptions.unsubscribe', "Click here to Unsubscribe", ['email' => $email]) }}
+</p>
