@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\jobs\UnsubscribeEmailNewsletter;
 use App\NewsletterSubscription;
 use App\Http\Requests\NewsletterSubscriptionRequest;
 use Illuminate\Http\Request;
