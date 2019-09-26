@@ -36,6 +36,6 @@ class NewsletterSubscriptionsController extends Controller {
 		}
 		$this->dispatch(new UnsubscribeEmailNewsletter($request->input('email')));
 		Session::flash('success', trans('newsletter.unsubscribed'));
-		return view('newsletters.unsubscribed')->withSuccess(trans('newsletter.unsubscribed'));
+		return view('newsletters.unsubscribed')->withSuccess("The request for unsubscription has been taken into account.");
 	}
 }
