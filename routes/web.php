@@ -32,3 +32,6 @@ Route::resource('emails-subscriptions', 'NewsletterSubscriptionsController', ['o
 Route::group(['middleware' => 'auth'], function() {
 	Route::resource('users', 'UsersController', ['only' => ['show', 'edit', 'update']]);
 });
+
+Route::get('newsletter-subscriptions/unsubscribe', 'NewsletterSubscriptionsController@unsubscribe')->name('newsletter-subscriptions.unsubscribe');
+
