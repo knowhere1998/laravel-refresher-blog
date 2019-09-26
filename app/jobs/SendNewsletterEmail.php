@@ -21,7 +21,7 @@ class SendNewsletterEmail implements ShouldQueue{
 		$posts = Post::lastMonth()->get();
 		$email = $this->email;
 
-		Mail::send('emails.emails', ['posts' => $posts], function ($message) use ($email) {
+		Mail::send('emails.emails', ['posts' => $posts, 'email' => $email], function ($message) use ($email) {
 			$message->from('hello@app.com', config('app.name', 'Laravel'));
 			$message->to($email)->subject(trans('emails.email.subject'));
 		});
