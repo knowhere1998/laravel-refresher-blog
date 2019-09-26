@@ -6,7 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Mail;
+use Illuminate\Support\Facades\Mail;
 
 class SendNewsletterEmail implements ShouldQueue{
 	use InteractsWithQueue, Queueable, SerializesModels, DispatchesJobs;
@@ -23,7 +23,7 @@ class SendNewsletterEmail implements ShouldQueue{
 
 		Mail::send('emails.emails', ['posts' => $posts, 'email' => $email], function ($message) use ($email) {
 			$message->from('hello@app.com', config('app.name', 'Laravel'));
-			$message->to($email)->subject(trans('emails.email.subject'));
+			$message->to($email)->subject("This month's Laravel-Blog Newsletter");
 		});
 	}
 }
