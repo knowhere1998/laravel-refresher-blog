@@ -13,6 +13,6 @@ class NewsletterSubscriptionsController extends Controller
 		$newsletterSubscription = NewsletterSubscription::create([
 			'email' => $request->input('email')
 		]);
-		return back()->withSuccess(trans('newsletter.created'));
+		return back()->withSuccess("Email added to the newsletter successfully");
 	}
 }
