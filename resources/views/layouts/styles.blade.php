@@ -14,27 +14,20 @@
 		align-self:end;
 	}
 
-	.links > a {
-		color: #636b6f;
-		padding: 0 25px;
-		font-size: 13px;
-		font-weight: 600;
-		letter-spacing: .1rem;
-		text-decoration: none;
-		text-transform: uppercase;
+	.form-row {
+		margin-top: 10px;
 	}
 
 	#footer {
 		clear: both;
-		margin-top: 260px;
-		padding-top: 60px;
+		margin-top: 120px;
+		padding-top: 30px;
 		text-align: center;
-		height: 260px;
+		height: 160px;
 		background-color: #bbb; /*to make it visible*/
 		position: absolute;
 		bottom: 0;
 		width: 100%;
-
 	}
 
 
@@ -44,14 +37,20 @@
 		font-weight: bolder;
 		font-size: 20px;
 		padding: 0 90px;
+		letter-spacing: .1rem;
+		text-decoration: none;
+		text-transform: uppercase;
 	}
 
 	html {
 		position: relative;
-		min-height: 100%;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+		padding-bottom: 140px;
 	}
-	body {
-		/* Margin bottom by footer height */
-		padding-bottom: 120px;
+
+	.content {
+		flex: 1;
 	}
 </style>

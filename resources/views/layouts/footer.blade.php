@@ -1,6 +1,5 @@
-<div class="container">
-	<div class="bottom-links links">
-
+<div class="container-fluid" id="footer">
+	<div class="bottom-links">
 		@if (Request::path() !== "blog")
 			<a href="/blog">Blog</a>
 		@endif
@@ -12,6 +11,8 @@
 		@endif
 		<a href="https://github.com/knowhere1998/laravel-refresher-blog">GitHub</a>
 		<hr>
+
+		@include('layouts.newsletter-form')
 		<div id="copyright text-right">© 2019. All rights reserved.</div>
 	</div>
 </div>

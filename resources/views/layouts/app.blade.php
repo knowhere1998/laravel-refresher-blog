@@ -1,13 +1,12 @@
 <!doctype html>
-<html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
 	@include('layouts.head')
 </head>
 <body class="d-flex flex-column">
-<div class="page-container flex-fill">
+<div class="page-container flex-fill content">
 	<div class="content-wrap">
-
-		<div class="container-fluid" style="height: 100vh">
+		<div class="container-fluid">
 				@include('layouts.navbar')
 
 			<div id="main" class="row mh-100">
@@ -15,13 +14,10 @@
 			</div>
 
 		</div>
-		<div id="footer">
-			@include('layouts.footer')
-			@include('layouts.newsletter-form')
-		</div>
 	</div>
 
 </div>
+@include('layouts.footer')
 
 </body>
 </html>
