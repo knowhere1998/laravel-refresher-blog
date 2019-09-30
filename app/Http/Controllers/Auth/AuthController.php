@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Http\Controllers;
-
+namespace App\Http\Controllers\Auth;
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,8 +23,7 @@ class AuthController extends Controller {
 	 * @param Provider provider
 	 * @return Response
 	 */
-	public function handleProviderCallback($provider)
-	{
+	public function handleProviderCallback($provider) {
 		try {
 			$user = Socialite::driver($provider)->user();
 		} catch (Exception $e) {
@@ -32,7 +31,8 @@ class AuthController extends Controller {
 		}
 		$authUser = $this->findOrCreateUser($user, $provider);
 		Auth::login($authUser, true);
-		return redirect()->route('home')->withSuccess(trans('auth.logged_in_provider', ['provider' => $provider]));
+		echo "Login Success with " . $provider;
+		return redirect()->route('home');
 	}
 
 	/**

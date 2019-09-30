@@ -57,8 +57,24 @@
 								<a class="btn btn-link" href="{{ url('/password/reset') }}">
 									Forgot Your Password?
 								</a>
+							</div>
+						</div>
+						<div class="form-group">
+							<div class="col-md-5" style="align-content: first">
+								<a href="{{ route('auth.provider', ['provider' => 'github']) }}" class="btn btn-default">
+									Login with Github
+									<i class="fa fa-github" aria-hidden="true"></i>
+								</a>
 
-								<a href="redirect/facebook">Login in with Facebook</a>
+								<a href="{{ route('auth.provider', ['provider' => 'facebook']) }}" class="btn btn-default">
+									Login with Facebook
+									<i class="fa fa-facebook-f" aria-hidden="true"></i>
+								</a>
+
+								<a href="{{ route('auth.provider', ['provider' => 'google']) }}" class="btn btn-default">
+									Login with Google
+									<i class="fa fa-google-plus" aria-hidden="true"></i>
+								</a>
 
 							</div>
 						</div>
