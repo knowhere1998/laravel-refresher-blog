@@ -35,3 +35,6 @@ Route::group(['middleware' => 'auth'], function() {
 
 Route::get('newsletter-subscriptions/unsubscribe', 'NewsletterSubscriptionsController@unsubscribe')->name('newsletter-subscriptions.unsubscribe');
 
+Route::get ( '/callback/{service}', 'SocialAuthController@callback' );
+Route::get ( '/redirect/{service}', 'SocialAuthController@redirect' );
+
