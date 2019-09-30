@@ -6,7 +6,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Mail;
+use Mail;
 
 class SendNewsletterEmail implements ShouldQueue{
 	use InteractsWithQueue, Queueable, SerializesModels, DispatchesJobs;

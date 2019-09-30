@@ -18,7 +18,7 @@ This is me following along with the Laracasts [Laravel 5.7 from Scratch](http://
 
 I guess you can consider this both **a part of my portfolio** as well as merely me **working on (re)acquiring skills both old and new**.
 
-**Once done, I'll likely redo things ~~(visually)~~** with perhaps Bootstrap, Vuetify, Quasar components or something like that--**to demonstrate that I possess the capabilities required**.
+**Once done, I'll likely redo things ~~(visually)~~** with perhaps Bootstrap, Vuetify or something like that--**to demonstrate that I possess the capabilities required**.
 
 I like to follow the make it work (1); make it work well/properly (2); make it pretty (3) principal.
 
