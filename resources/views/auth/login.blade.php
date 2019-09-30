@@ -68,7 +68,7 @@
 
 								<a href="{{ route('auth.provider', ['provider' => 'facebook']) }}" class="btn btn-default">
 									Login with Facebook
-									<i class="fa fa-facebook-f" aria-hidden="true"></i>
+									<i class="fa fa-facebook" aria-hidden="true"></i>
 								</a>
 
 								<a href="{{ route('auth.provider', ['provider' => 'google']) }}" class="btn btn-default">
